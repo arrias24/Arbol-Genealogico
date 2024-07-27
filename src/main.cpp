@@ -8,11 +8,15 @@
 //PROTOTIPOS
 
 #include "../src/model/structures.h"
-using namespace std;
+#include "../src/class/tree/tree.cpp"
 
+using namespace std;
 
 int main()
 {
-    
+    Tree <Persona> tree;
+
+
+
     return 0;
 }
