@@ -1,0 +1,9 @@
+id,nombre,apellido,genero,edad,fecha_nacimiento,fecha_muerte,estado,padre,madre
+25338156,Carla,Mavarez,Femenino,29,19/11/1995,00/00/0000,Soltera,15332651,15332684
+24223456,Alexander,Mavarez,Masculino,31,17/10/1993,00/00/0000,Soltero,15332651,15332684
+14665894,Rick,Mavarez,Masculino,50,12/12/1974,00/00/0000,Soltero,10553468,11324658
+15442651,Rosa,Perez,Femenino,48,21/04/1976,00/00/0000,Casada,10566489,10485697
+11000234,Arantza,Mavarez,Femenino,72,20/01/1952,01/01/1991,Soltera,8754235,8854984
+10201221,Kevin,Mavarez,Masculino,73,12/06/1951,00/00/0000,Casado,8754235,8854984
+12131456, Malcon,Pereira,Masculino,69,26/07/1955,00/00/0000,Casado,8554326,8544123
+11623589,Rosario,Pereira,Femenino,70,28/03/1954,00/00/0000,Casado,8554326,8544123
