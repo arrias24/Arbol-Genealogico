@@ -32,6 +32,7 @@ struct Persona
     int padre;
     int madre;  
     List<Hermano> hermanos;
+    int numero_hermanos;
 };
 
 #endif

@@ -28,7 +28,7 @@ void List<T>::insert(T data){
     else
     {
     //BUSCAMOS EL NODO ANTERIOR QUE SEA MENOR A DATA
-        while(current != NULL && current->getData() < data)
+        while(current != NULL && current->getData().edad < data.edad)
         {
             last = current;
             current = current->getNextNode();
