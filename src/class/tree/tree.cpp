@@ -305,3 +305,32 @@ void Tree<T>::findLineage(string nombre, string apellido, Tree<Persona> &arbol, 
         count++;
     }
 }
+
+void countBrothersChildren(Tree<Persona> &arbol, const string &nombre, const string &apellido, bool contarHermanos) {
+    NodeTree<Persona>* personaNode = arbol.findByName(nombre, apellido);
+    if (personaNode == NULL) {
+        cout << "Persona no encontrada." << endl;
+        return;
+    }
+
+    Persona persona = personaNode->getData();
+    int count = 0;
+
+    if (contarHermanos) {
+        // Contar hermanos
+        count = persona.numero_hermanos;
+    } else {
+        // Contar hijos
+        Persona hijo;
+        int hermanos;
+        for (NodeTree<Persona>* node = arbol.getRoot(); node != NULL; node = node->getLeft()) {
+            hijo = node->getData();
+            if (hijo.madre == persona.id || hijo.padre == persona.id) {
+                count++;
+                hermanos = hijo.numero_hermanos;
+            }
+        }
+        count += hermanos;
+    }
+    cout << "Cantidad de " << (contarHermanos ? "hermanos" : "hijos") << " de " << persona.nombre << " " << persona.apellido << ": " << count << endl;
+}

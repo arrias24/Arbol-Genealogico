@@ -63,7 +63,7 @@ int main()
                 mostrarLineaFamiliar(tree);
                 break;
             case 4:
-                
+                mostrarNumeroDeFamiliares(tree);
                 break;
             case 5:
                 
