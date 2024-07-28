@@ -1,7 +1,6 @@
 //LIBRERIAS
 
 #include <iostream>
-#include <cstdlib>
 #include <fstream>
 #include <string>
 
@@ -10,6 +9,8 @@
 #include "../src/model/structures.h"
 #include "../src/class/tree/tree.cpp"
 #include "../src/controller/fileOperations.cpp"
+#include "./view/menu.cpp"
+#include "./view/operations.cpp"
 
 using namespace std;
 
@@ -41,8 +42,38 @@ int main()
         tree.insert(personas[i]);
     }
 
-
-
+    system("clear");
+    int opcion;
+    do {
+        mostrarMenu();
+        cin >> opcion;
+        switch (opcion) {
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                
+                break;
+            case 5:
+                
+                break;
+            case 6:
+                
+                break;
+            case 7:
+                system("clear");
+                break;
+            default:
+                cout << endl << "Opción no válida. Intente de nuevo." << endl;
+                limpiarPantalla();
+        }
+    } while (opcion != 7);
 
     return 0;
 }
