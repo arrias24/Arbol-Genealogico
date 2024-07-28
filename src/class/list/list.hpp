@@ -5,8 +5,8 @@ using namespace std;
 template <class T>
 class List{
     private:
-        Node<T>* head = NULL;
     public:
+        Node<T>* head = NULL;
         void insert(T data);
         void insertFirst(Node<T>* node);
         bool isEmpty();

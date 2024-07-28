@@ -52,7 +52,7 @@ int main()
                 
                 break;
             case 2:
-                
+                mostrarHermanos(tree);
                 break;
             case 3:
                 

@@ -8,6 +8,7 @@ class Tree {
 private:
     NodeTree<T>* root = NULL;
     NodeTree<T>* insert(NodeTree<T>* node, T data);
+    NodeTree<T>* findByNameHelper(NodeTree<T>* node, string nombre, string apellido);
 
 public:
     bool isEmpty();
@@ -18,9 +19,10 @@ public:
     void preOrden(NodeTree<T>* node);
     NodeTree<T>* getRoot();
 
-    void findBrothers(string);
+    NodeTree<T>* findByName(string nombre, string apellido);
+    string findSiblings(string nombre, string apellido, Tree<Persona>& arbol);
 };
 
-#endif // TREE_HPP
+#endif
 
 
