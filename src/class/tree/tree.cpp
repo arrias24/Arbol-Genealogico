@@ -147,6 +147,31 @@ NodeTree<T> *Tree<T>::findByNameHelper(NodeTree<T> *node, string nombre, string 
 }
 
 template <class T>
+NodeTree<T>* Tree<T>::findById(int id) {
+    return findByIdHelper(root, id);
+}
+
+template <class T>
+NodeTree<T> *Tree<T>::findByIdHelper(NodeTree<T> *node, int id)
+{
+    if (node == NULL) {
+        return NULL;
+    }
+
+    T data = node->getData();
+    if (data.id == id) {
+        return node;
+    }
+
+    NodeTree<T>* foundNode = findByIdHelper(node->getChildren(0), id);
+    if (foundNode != NULL) {
+        return foundNode;
+    }
+
+    return findByIdHelper(node->getChildren(1), id);
+}
+
+template <class T>
 string Tree<T>::findSiblings(string nombre, string apellido, Tree<Persona> &arbol)
 {
     // Buscar la persona en el árbol
@@ -188,4 +213,95 @@ string Tree<T>::findSiblings(string nombre, string apellido, Tree<Persona> &arbo
         cout << "No tiene hermanos." << endl;
     }
     return "resultado";
+}
+
+template <class T>
+void Tree<T>::findLineage(string nombre, string apellido, Tree<Persona> &arbol, bool isMaternal)
+{
+    // Buscar la persona en el árbol
+    NodeTree<Persona>* personaNode = arbol.findByName(nombre, apellido);
+    if (personaNode == NULL) {
+        cout << "Persona no encontrada." << endl;
+        return;
+    }
+
+    Persona persona = personaNode->getData();
+    cout << "Línea " << (isMaternal ? "materna" : "paterna") << " de " << persona.nombre << " " << persona.apellido << ":" << endl << endl;
+
+    // Recorrer la línea materna o paterna
+    int count = 0;
+    while (personaNode != NULL) {
+        Persona currentPersona = personaNode->getData();
+
+        if (count > 0)
+        {
+            cout << currentPersona.nombre << " " << currentPersona.apellido << endl;
+            cout << "ID: " << currentPersona.id << endl;
+            cout << "Genero: " << currentPersona.genero << endl;
+            cout << "Edad: " << currentPersona.edad << endl;
+            cout << "Estado: " << currentPersona.estado << endl;
+            cout << "Fecha de nacimiento: " << currentPersona.fecha_nacimiento << endl;
+            if (currentPersona.fecha_muerte != "00/00/0000") cout << "Fecha de muerte: " << currentPersona.fecha_muerte << endl;
+            cout << endl;
+        }
+
+        if ((personaNode = arbol.findById(currentPersona.madre)) == NULL) 
+        { 
+           break;
+        }
+
+        switch (count)
+        {
+        case 0:
+            cout << "Padres: " << endl  << endl;
+            break;
+        case 1:
+            cout << "Abuelos: " << endl  << endl;
+            break;
+        case 2:
+            cout << "Bisabuelos: " << endl  << endl;
+            break;
+        case 3:
+            cout << "Tatarabuelos: " << endl  << endl;
+            break;
+        default:
+            break;
+        }
+
+        // Moverse al siguiente ancestro en la línea seleccionada
+        if (isMaternal) {
+            if (count >= 0)
+            {
+                NodeTree<Persona>* parejaNode = arbol.findById(currentPersona.padre);
+                if (parejaNode != NULL) {
+                    Persona pareja = parejaNode->getData();
+                    cout << pareja.nombre << " " << pareja.apellido << endl;
+                    cout << "ID: " << pareja.id << endl;
+                    cout << "Genero: " << pareja.genero << endl;
+                    cout << "Edad: " << pareja.edad << endl;
+                    cout << "Estado: " << pareja.estado << endl;
+                    cout << "Fecha de nacimiento: " << pareja.fecha_nacimiento << endl;
+                    if (pareja.fecha_muerte != "00/00/0000") cout << "Fecha de muerte: " << pareja.fecha_muerte << endl;
+                }
+            }
+        } else {
+            personaNode = arbol.findById(currentPersona.padre);
+            if (count >= 0)
+            {
+                NodeTree<Persona>* parejaNode = arbol.findById(currentPersona.madre);
+                if (parejaNode != NULL) {
+                    Persona pareja = parejaNode->getData();
+                    cout << pareja.nombre << " " << pareja.apellido << endl;
+                    cout << "ID: " << pareja.id << endl;
+                    cout << "Genero: " << pareja.genero << endl;
+                    cout << "Edad: " << pareja.edad << endl;
+                    cout << "Estado: " << pareja.estado << endl;
+                    cout << "Fecha de nacimiento: " << pareja.fecha_nacimiento << endl;
+                    if (pareja.fecha_muerte != "00/00/0000") cout << "Fecha de muerte: " << pareja.fecha_muerte << endl;
+                }
+            }
+        }
+        cout << endl;
+        count++;
+    }
 }

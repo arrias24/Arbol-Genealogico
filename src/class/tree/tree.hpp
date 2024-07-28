@@ -9,6 +9,7 @@ private:
     NodeTree<T>* root = NULL;
     NodeTree<T>* insert(NodeTree<T>* node, T data);
     NodeTree<T>* findByNameHelper(NodeTree<T>* node, string nombre, string apellido);
+    NodeTree<T>* findByIdHelper(NodeTree<T> *node, int id);
 
 public:
     bool isEmpty();
@@ -19,10 +20,10 @@ public:
     void preOrden(NodeTree<T>* node);
     NodeTree<T>* getRoot();
 
+    NodeTree<T>* findById(int id);
     NodeTree<T>* findByName(string nombre, string apellido);
     string findSiblings(string nombre, string apellido, Tree<Persona>& arbol);
+    void findLineage(string nombre, string apellido, Tree<Persona> &arbol, bool isMaternal);
 };
 
 #endif
-
-

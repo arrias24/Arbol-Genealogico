@@ -55,7 +55,7 @@ int main()
                 mostrarHermanos(tree);
                 break;
             case 3:
-                
+                mostrarLineaFamiliar(tree);
                 break;
             case 4:
                 
