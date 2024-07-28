@@ -35,5 +35,13 @@ void Node<T>::setNextNode(Node<T>* next){
 
 template <class T>
 void Node<T>::print(){
-    cout<<this->data<<endl;
+    cout << "Cedula: " << this->data.id << "." << endl;
+    cout << "Nombre: " << this->data.nombre << "." << endl;
+    cout << "Apellido: " << this->data.apellido << "." << endl;
+    cout << "Genero: " << this->data.genero << "." << endl;
+    cout << "Edad: " << this->data.edad << "." << endl;
+    cout << "Fecha de nacimiento: " << this->data.fecha_nacimiento << "." << endl;
+    cout << "Fecha de muerte: " << this->data.fecha_muerte << "." << endl;
+    cout << "Padre: " << this->data.padre << "." << endl;
+    cout << "Madre: " << this->data.madre << "." << endl<<endl;
 }

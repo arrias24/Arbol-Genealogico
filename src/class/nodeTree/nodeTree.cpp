@@ -3,141 +3,51 @@
 using namespace std;
 
 template <class T>
-NodeTree<T>::NodeTree(T data, NodeTree<T>* right, NodeTree<T>* left){
-    this->data=data;
-    if(right!=NULL){
-        this->right=right;
-    }
-     if(left!=NULL){
-        this->left=left;
-    }
+NodeTree<T>::NodeTree(T data, NodeTree<T>* left, NodeTree<T>* right) {
+    this->data = data;
+    this->left = left;
+    this->right = right;
 }
-template<class T>
-bool NodeTree<T>::isLeaf(){
-    return right == NULL && left == NULL;
-}
+
 template <class T>
-NodeTree<T>* NodeTree<T>::getChildren(int child){
-    switch (child)
-    {
-    case 0:
-        return this->left;
-    case 1:
-        return this->right;
-    }
+NodeTree<T>::~NodeTree() {
+    // Aquí podrías agregar código para eliminar nodos hijos si fuera necesario
+}
+
+template <class T>
+NodeTree<T>* NodeTree<T>::getChildren(int child) {
+    if (child == 0) return this->left;
+    if (child == 1) return this->right;
     return NULL;
 }
 
 template <class T>
-void NodeTree<T>::setChildren(NodeTree<T>* right, NodeTree<T>* left){
-    if(right != NULL && left!=NULL){
-        this->right=right;
-        this->left=left;
-    }else if(left!=NULL){
-        this->left=left;
-    }
-    else if(right != NULL){
-          this->right=right;
-    }else{
-        this->right=NULL;
-        this->left=NULL;
-        heigth = 0;
-    }
-   this->heigth=autoHeight();
-   
+void NodeTree<T>::setData(T data) {
+    this->data = data;
 }
 
 template <class T>
-void NodeTree<T>::setRight(NodeTree<T>* right){
-  
-    this->right=right;
-    this->heigth=autoHeight();
+T NodeTree<T>::getData() {
+    return this->data;
 }
 
 template <class T>
-void NodeTree<T>::setLeft(NodeTree<T>* left){
-  
-        this->left=left;
-        this->heigth=autoHeight();
-}
-template <class T>
-int NodeTree<T>::autoHeight(){
-  
-    int h_left=calculate_Heigth(this->left);
-    int h_right=calculate_Heigth(this->right);
-
-   
-   return  h_left<h_right ?  h_right : h_left;
-
+void NodeTree<T>::setChildren(NodeTree<T>* left, NodeTree<T>* right) {
+    this->left = left;
+    this->right = right;
 }
 
 template <class T>
-void NodeTree<T>::setData(T data){
-    this->data=data;
+void NodeTree<T>::print() {
+    cout << "Cedula: " << this->data.id << "." << endl;
+    cout << "Nombre: " << this->data.nombre << "." << endl;
+    cout << "Apellido: " << this->data.apellido << "." << endl;
+    cout << "Genero: " << this->data.genero << "." << endl;
+    cout << "Edad: " << this->data.edad << "." << endl;
+    cout << "Fecha de nacimiento: " << this->data.fecha_nacimiento << "." << endl;
+    cout << "Fecha de muerte: " << this->data.fecha_muerte << "." << endl;
+    cout << "Padre: " << this->data.padre << "." << endl;
+    cout << "Madre: " << this->data.madre << "." << endl;
+    cout << "Cantidad de hermanos: " << this->data.numero_hermanos << "." << endl << endl;
 }
 
-
-template <class T>
-T NodeTree<T>::getData(){
-   return this->data;
-}
-
-
-
-template<class T>
-void NodeTree<T>::print(){
-    cout<<this->data<<" "; //solo para datos simples
-}
-template <class T>
-NodeTree<T>::~NodeTree(){
-    this->right=NULL;
-    this->left=NULL;
-}
-
-template<class T>
-void NodeTree<T>::setFe(){
-    if(this->right == NULL && this->left==NULL){
-        this->fe=0;
-    }
-    else if(this->right != NULL && this->left!=NULL){
-        this->fe=(this->right->higth)-(this->left->higth);
-    }else if(this->right == NULL ){
-        this->fe=-(this->left->higth);
-    }
-    else if( this->left==NULL){
-        this->fe=(this->right->higth);
-    }
-}
-template<class T>
-void NodeTree<T>::setFe(int fe){
-    this->fe = fe;
-}
-
-template<class T>
-int NodeTree<T>::getFe(){
-    return this->fe;  
-}
-
-
-template <class T>
-void NodeTree<T>::setHeigth(int heigth){
-    this->heigth=heigth;
-}
-template <class T>
-int NodeTree<T>::getHeigth(){
-    return heigth;
-}
-
-template <class T>
-int NodeTree<T>::calculate_Heigth(NodeTree<T>* nodeTree){
- 
-    if (nodeTree == NULL) return 0 ;
-    else{
-        int heigthLeft = calculate_Heigth(nodeTree->left);
-        int heigthRigth = calculate_Heigth(nodeTree->right);
-        if (heigthLeft> heigthRigth)
-            return heigthLeft + 1;
-        else
-            return heigthRigth + 1;
-    }
-}

@@ -32,7 +32,14 @@ int main()
     saveDataBrother(file_brothers,hermanos, num_hermanos);
     insertBrothers(personas,hermanos,num_personas,num_hermanos);
 
+    //CREAMOS EL ARBOL Y GUARDAMOS LOS DATOS
 
+    Tree <Persona> tree;
+
+    for (int i = 0; i < num_personas; i++)
+    {
+        tree.insert(personas[i]);
+    }
 
 
 
