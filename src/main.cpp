@@ -42,11 +42,16 @@ int main()
         tree.insert(personas[i]);
     }
 
+    //MENU
+
     system("clear");
     int opcion;
-    do {
-        mostrarMenu();
-        cin >> opcion;
+    do 
+    {
+        opcion = mostrarMenu();
+
+        if(opcion)
+
         switch (opcion) {
             case 1:
                 
@@ -68,9 +73,10 @@ int main()
                 break;
             case 7:
                 system("clear");
+                cout<<"FIN DEL PROGRAMA."<<endl<<endl;
                 break;
             default:
-                cout << endl << "Opción no válida. Intente de nuevo." << endl;
+                cout << endl << "Opción no valida, intente de nuevo." << endl;
                 limpiarPantalla();
         }
     } while (opcion != 7);
