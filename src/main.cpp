@@ -83,3 +83,34 @@ int main()
 
     return 0;
 }
+
+
+/*
+            DATOS DE LA FAMILIA PARA PROBAR EL PROGRAMA
+
+    PERSONAS DENTRO DEL ARBOL
+
+    - Marco Mavarez
+    - Alfonso Mavarez
+    - Marta Perez
+    - Manuel Perez
+    - Olivia Gonzales
+    - Arsenio Mavarez
+    - Rocio Pereira
+    - Alan Pereira
+    - Maria Acosta
+    - Eva Lugo
+    - Adan Mavarez
+
+    HERMANOS DE LAS PERSONAS DENTRO DEL ARBOL
+
+    - Carla Mavarez
+    - Alexander Mavarez
+    - Rick Mavarez
+    - Rosa Perez
+    - Arantza Mavarez
+    - Kevin Mavarez
+    - Malcon Pereira
+    - Rosario Pereira
+
+*/
