@@ -3,7 +3,8 @@ using namespace std;
 
 template <class T>
 
-class Node{
+class Node
+{
     private:
         T data;
         Node<T>* next = NULL;

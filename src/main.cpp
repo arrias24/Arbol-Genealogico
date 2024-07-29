@@ -54,29 +54,29 @@ int main()
 
         switch (opcion) {
             case 1:
-                mostrarFamilia(tree);
+                mostrarFamilia(tree); // Indicar la linea paterna o la linea materna desde la raiz.
                 break;
             case 2:
-                mostrarHermanos(tree);
+                mostrarHermanos(tree); // Indicar los hermanos de un nodo especifico dentro del arbol.
                 break;
             case 3:
-                mostrarLineaFamiliar(tree);
+                mostrarLineaFamiliar(tree); // Indicar desde un nodo la linea materna o paterna.
                 break;
             case 4:
-                mostrarNumeroDeFamiliares(tree);
+                mostrarNumeroDeFamiliares(tree); // Indicar cantidad de hermanos o hijos.
                 break;
             case 5:
-                
+                    // Eliminar del arbol uno o varios nodos en caso de divorcio.
                 break;
             case 6:
-                mostrarEstadoFamilia(tree);
+                mostrarEstadoFamilia(tree); // Mostrar el estado de cada miembro incluyendo hermanos.
                 break;
-            case 7:
+            case 7: 
                 system("clear");
-                cout<<"FIN DEL PROGRAMA."<<endl<<endl;
+                cout<<"FIN DEL PROGRAMA."<<endl<<endl; // Fin del programa.
                 break;
             default:
-                cout << endl << "Opcion no valida, intente de nuevo." << endl;
+                cout <<endl<<"Opcion no valida, intente de nuevo."<<endl; // Opcion por defecto.
                 limpiarPantalla();
         }
     } while (opcion != 7);
