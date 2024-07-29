@@ -145,7 +145,7 @@ void mostrarEstadoFamilia(Tree<Persona> &arbol) // REQUISITO 6 - Mostrar el esta
 
     cout<<endl;
 
-    system("pause");
+    limpiarPantalla();
 }
 
 

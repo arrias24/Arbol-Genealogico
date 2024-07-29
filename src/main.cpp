@@ -66,7 +66,7 @@ int main()
                 mostrarNumeroDeFamiliares(tree); // Indicar cantidad de hermanos o hijos.
                 break;
             case 5:
-                    // Eliminar del arbol uno o varios nodos en caso de divorcio.
+                // Eliminar del arbol uno o varios nodos en caso de divorcio.
                 break;
             case 6:
                 mostrarEstadoFamilia(tree); // Mostrar el estado de cada miembro incluyendo hermanos.
