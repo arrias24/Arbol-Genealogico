@@ -16,6 +16,28 @@ void limpiarPantalla() {
     }
 }
 
+void mostrarFamilia(Tree<Persona> &arbol) {
+    system("clear");
+
+    int opcion;
+    cout<<"Seleccione la linea que desea ver:"<< endl<<endl;
+    cout<<"1. Linea materna"<<endl;
+    cout<<"2. Linea paterna"<<endl<<endl;
+    cout<<"Seleccione una opcion: ";
+
+    cin>>opcion;cout<<endl;
+
+    if (opcion == 1) {
+        arbol.findLineage("Marco", "Mavarez", arbol, true);
+    } else if (opcion == 2) {
+        arbol.findLineage("Marco", "Mavarez", arbol, false);
+    } else {
+        cout<<"Opcion no valida."<<endl;
+    }
+
+    limpiarPantalla();
+}
+
 void mostrarHermanos(Tree<Persona>& tree) {
     system("clear");
 

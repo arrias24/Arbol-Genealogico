@@ -54,7 +54,7 @@ int main()
 
         switch (opcion) {
             case 1:
-                
+                mostrarFamilia(tree);
                 break;
             case 2:
                 mostrarHermanos(tree);
@@ -76,7 +76,7 @@ int main()
                 cout<<"FIN DEL PROGRAMA."<<endl<<endl;
                 break;
             default:
-                cout << endl << "Opción no valida, intente de nuevo." << endl;
+                cout << endl << "Opcion no valida, intente de nuevo." << endl;
                 limpiarPantalla();
         }
     } while (opcion != 7);
