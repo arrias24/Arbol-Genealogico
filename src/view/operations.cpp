@@ -92,15 +92,19 @@ void mostrarNumeroDeFamiliares(Tree<Persona> &arbol) {
     cout << endl;
     int opcion;
     cout << "Seleccione la línea que desea ver:" << endl << endl;
-    cout << "1. Cantidad de hermanos" << endl;
-    cout << "2. Cantidad de hijos" << endl << endl;
+    cout << "1. Cantidad de hermanos"<<endl<<endl;
+    if(nombre != "Marco")
+    {
+        cout << "2. Cantidad de hijos" <<endl<<endl;
+    }
     cout << "Seleccione una opción: ";
-
     cin >> opcion; cout << endl;
 
     if (opcion == 1) {
         countBrothersChildren(arbol, nombre, apellido, true);
-    } else if (opcion == 2) {
+    } 
+    else if (opcion == 2 && nombre != "Marco") 
+    {
         countBrothersChildren(arbol, nombre, apellido, false);
     } else {
         cout << "Opción no válida." << endl;
