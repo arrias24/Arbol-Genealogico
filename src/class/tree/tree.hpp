@@ -24,6 +24,7 @@ public:
     NodeTree<T>* findByName(string nombre, string apellido);
     string findSiblings(string nombre, string apellido, Tree<Persona>& arbol);
     void findLineage(string nombre, string apellido, Tree<Persona> &arbol, bool isMaternal);
+    void printFamilyStatus(NodeTree<T>* node);
 };
 
 #endif

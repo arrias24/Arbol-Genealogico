@@ -334,3 +334,43 @@ void countBrothersChildren(Tree<Persona> &arbol, const string &nombre, const str
     }
     cout << "Cantidad de " << (contarHermanos ? "hermanos" : "hijos") << " de " << persona.nombre << " " << persona.apellido << ": " << count << endl;
 }
+
+
+
+template <class T>
+void Tree<T>::printFamilyStatus(NodeTree<T>* node) {
+
+    if (node == NULL) {
+        return;
+    }
+
+    printFamilyStatus(node->getChildren(0)); // Izquierda
+
+    T data = node->getData();
+    cout<<endl;
+    cout<<"Nombre: "<<data.nombre<<endl;
+    cout<<"Apellido: "<<data.apellido<<endl;
+    cout<<"Estado: " <<data.estado<<endl;
+    if (data.estado == "Muerto") 
+    {
+        cout<<"Fecha de fallecimiento: "<<data.fecha_muerte<<endl<<endl;
+    }
+
+    if (!data.hermanos.isEmpty())
+    {
+        cout<<endl<<"Estado de sus hermanos:"<<endl;
+        Node<Hermano>* current = data.hermanos.head;
+        while (current != NULL) 
+        {
+            Hermano hermano = current->getData();
+            cout<<hermano.nombre<<" "<<hermano.apellido<<" ("<<hermano.estado<<")"<<endl;
+            if (hermano.estado == "muerto") 
+            {
+                cout<<"Fecha de fallecimiento: "<<hermano.fecha_muerte<<endl;
+            }
+            current = current->getNextNode();
+        }
+    }
+
+    printFamilyStatus(node->getChildren(1)); // Derecha
+}

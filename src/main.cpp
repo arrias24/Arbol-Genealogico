@@ -69,7 +69,7 @@ int main()
                 
                 break;
             case 6:
-                
+                mostrarEstadoFamilia(tree);
                 break;
             case 7:
                 system("clear");

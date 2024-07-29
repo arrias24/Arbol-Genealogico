@@ -108,3 +108,13 @@ void mostrarNumeroDeFamiliares(Tree<Persona> &arbol) {
 
     limpiarPantalla();
 }
+
+void mostrarEstadoFamilia(Tree<Persona> &arbol)
+{   
+    system("clear");
+    cout<<"ESTADO DE LA FAMILIA"<<endl;
+    arbol.printFamilyStatus(arbol.getRoot());
+    cout<<endl;system("pause");
+}
+
+
